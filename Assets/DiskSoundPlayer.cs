@@ -9,7 +9,7 @@ namespace SoundBoard
 		{
 			get { return "Play sound from disk path: " + Path; }
 		}
-		
+
 		protected override IEnumerator LoadCoroutine()
 		{
 			if (!System.IO.File.Exists(Path))
@@ -28,6 +28,7 @@ namespace SoundBoard
 			}
 
 			Clip = www.GetAudioClip(false);
+			DispatchLoadingFinished();
 		}
 	}
 }
